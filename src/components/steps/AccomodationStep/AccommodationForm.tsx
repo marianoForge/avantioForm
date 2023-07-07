@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { setAccommodationData } from "../formSlice";
-import { accommodationSchema } from "../../validations/schemas";
+import { setAccommodationData } from "./accommodationSlice";
+import { accommodationSchema } from "../../../validations/schemas";
 
-import Input from "../formComponents/Input";
-import ImageDisplay from "../formComponents/ImageDisplay";
+import Input from "../../formComponents/Input";
+import ImageDisplay from "../../formComponents/ImageDisplay";
 
 const AccommodationForm = () => {
   const [name, setName] = useState("");

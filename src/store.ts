@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import formReducer from "./components/formSlice";
+import accommodationFormReducer from "./components/steps/AccomodationStep/accommodationSlice";
+import ownerFormReducer from "./components/steps/OwnerStep/ownerSlice";
 
 export const store = configureStore({
   reducer: {
-    form: formReducer,
+    accommodationForm: accommodationFormReducer,
+    ownerForm: ownerFormReducer,
   },
 });
 

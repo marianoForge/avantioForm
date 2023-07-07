@@ -13,7 +13,6 @@ const ImageDisplay: FC<ImageDisplayProps> = ({ images }) => {
     }
     setImageUrls(urls);
 
-    // Clean up function to revoke the object URLs when the component is unmounted.
     return () => {
       urls.forEach((url) => URL.revokeObjectURL(url));
     };

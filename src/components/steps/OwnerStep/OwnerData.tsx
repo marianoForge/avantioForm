@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { setOwnerData } from "../formSlice";
+import { setOwnerData } from "./ownerSlice";
 
-import Input from "../formComponents/Input";
-import { ownerDataSchema } from "../../validations/schemas";
+import Input from "../../formComponents/Input";
+import { ownerDataSchema } from "../../../validations/schemas";
 
 const AccommodationForm = () => {
   const [name, setName] = useState("");

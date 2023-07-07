@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import AccommodationForm from "./components/steps/AccomodationForm";
-import OwnerForm from "./components/steps/OwnerData";
+import AccommodationForm from "./components/steps/AccomodationStep/AccommodationForm";
+import OwnerForm from "./components/steps/OwnerStep/OwnerData";
 import Summary from "./components/steps/Summary";
-import NoMatch from "./components/steps/NoMatch";
+import Page404 from "./components/steps/Page404";
 
 function App() {
   return (
@@ -13,11 +13,7 @@ function App() {
           <Route path="/" element={<AccommodationForm />} />
           <Route path="owner" element={<OwnerForm />} />
           <Route path="summary" element={<Summary />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          <Route path="*" element={<NoMatch />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
     </div>

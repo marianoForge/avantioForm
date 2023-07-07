@@ -1,13 +1,14 @@
-// SummaryForm.tsx
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Key } from "react";
 
 const SummaryForm = () => {
   const accommodationData = useSelector(
-    (state: RootState) => state.form.accommodationData
+    (state: RootState) => state.accommodationForm.accommodationData
   );
-  const ownerData = useSelector((state: RootState) => state.form.ownerData);
+  const ownerData = useSelector(
+    (state: RootState) => state.ownerForm.ownerData
+  );
 
   return (
     <>
