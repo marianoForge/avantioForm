@@ -1,20 +1,24 @@
 import * as yup from "yup";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { setOwnerData } from "./ownerSlice";
 
 import Input from "../../formComponents/Input";
-import { ownerDataSchema } from "../../../validations/schemas";
+import { emailRegex, ownerDataSchema } from "../../../validations/schemas";
 import Button from "../../formComponents/Button";
+import { RootState } from "../../../store";
 
 const AccommodationForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [validationError, setValidationError] = useState<string | null>(null);
+  const ownerData = useSelector(
+    (state: RootState) => state.ownerForm.ownerData
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,6 +41,13 @@ const AccommodationForm = () => {
       }
     }
   };
+
+  const disabledButton =
+    name === "" ||
+    email === "" ||
+    !emailRegex.test(email) ||
+    phone === "" ||
+    validationError !== null;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -79,7 +90,8 @@ const AccommodationForm = () => {
         <Button
           type="submit"
           label="Next"
-          className="block w-1/2 text-center text-sm font-semibold shadow-sm"
+          className="block w-1/2 text-center text-sm font-semibold shadow-sm disabled:opacity-30"
+          disabled={disabledButton}
         />
       </div>
     </form>

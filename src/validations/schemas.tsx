@@ -1,5 +1,9 @@
 import * as yup from "yup";
 
+export const emailRegex = new RegExp(
+  "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
+);
+
 export const accommodationSchema = yup.object().shape({
   name: yup
     .string()
@@ -15,7 +19,7 @@ export const accommodationSchema = yup.object().shape({
   description: yup
     .string()
     .nullable()
-    .min(128, "Description must be at least 128 characters")
+    .optional()
     .max(2048, "Description must be at most 2048 characters"),
   type: yup
     .string()
@@ -35,6 +39,7 @@ export const ownerDataSchema = yup.object().shape({
   email: yup
     .string()
     .email("Must be a valid email")
+    .matches(emailRegex, "Must be a valid email")
     .required("Email is required"),
   phoneNumber: yup
     .string()

@@ -8,7 +8,7 @@ interface OwnerState {
   };
 }
 
-const initialState: OwnerState = {
+export const initialState: OwnerState = {
   ownerData: {
     name: "",
     email: "",

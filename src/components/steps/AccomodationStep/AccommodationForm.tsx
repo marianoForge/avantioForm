@@ -62,6 +62,9 @@ const AccommodationForm = () => {
     }
   };
 
+  const disabledButton =
+    name === "" || address === "" || type === "" || validationError !== null;
+
   return (
     <form onSubmit={handleSubmit}>
       {validationError && (
@@ -130,7 +133,8 @@ const AccommodationForm = () => {
         <Button
           type="submit"
           label="Next"
-          className="block w-1/2 text-center text-sm font-semibold shadow-sm"
+          className="block w-1/2 text-center text-sm font-semibold shadow-sm disabled:opacity-30"
+          disabled={disabledButton}
         />
       </div>
     </form>
