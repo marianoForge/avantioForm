@@ -21,8 +21,8 @@ export const accommodationSchema = yup.object().shape({
     .string()
     .required("Type is required")
     .oneOf(
-      ["apartment", "villa", "house"],
-      "Type must be one of: apartment, villa, house"
+      ["Apartment", "Villa", "House"],
+      "Type of accomodation must be one of: apartment, villa, house"
     ),
 });
 

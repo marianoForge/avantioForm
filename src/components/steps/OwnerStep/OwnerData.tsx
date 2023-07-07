@@ -8,6 +8,7 @@ import { setOwnerData } from "./ownerSlice";
 
 import Input from "../../formComponents/Input";
 import { ownerDataSchema } from "../../../validations/schemas";
+import Button from "../../formComponents/Button";
 
 const AccommodationForm = () => {
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ const AccommodationForm = () => {
   };
 
   return (
-    <form className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       {validationError && (
         <p className="text-red-500 mb-4">{validationError}</p>
       )}
@@ -71,17 +72,15 @@ const AccommodationForm = () => {
         onChange={(e) => setPhone(e.target.value)}
         label="Phone"
       />
-
-      <div className="mt-10">
-        {validationError && (
-          <p className="text-red-500 mb-4">{validationError}</p>
-        )}
-        <button
+      {validationError && (
+        <p className="text-red-500 mb-4">{validationError}</p>
+      )}
+      <div className="mt-10 flex flex-col items-center justify-center">
+        <Button
           type="submit"
-          className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Next
-        </button>
+          label="Next"
+          className="block w-1/2 text-center text-sm font-semibold shadow-sm"
+        />
       </div>
     </form>
   );

@@ -17,7 +17,7 @@ const initialState: OwnerState = {
 };
 
 export const ownerSlice = createSlice({
-  name: "form",
+  name: "ownerForm",
   initialState,
   reducers: {
     setOwnerData: (state, action: PayloadAction<OwnerState["ownerData"]>) => {

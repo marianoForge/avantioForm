@@ -9,6 +9,7 @@ import { accommodationSchema } from "../../../validations/schemas";
 
 import Input from "../../formComponents/Input";
 import ImageDisplay from "../../formComponents/ImageDisplay";
+import Button from "../../formComponents/Button";
 
 const AccommodationForm = () => {
   const [name, setName] = useState("");
@@ -62,7 +63,7 @@ const AccommodationForm = () => {
   };
 
   return (
-    <form className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       {validationError && (
         <p className="text-red-500 mb-4">{validationError}</p>
       )}
@@ -105,34 +106,32 @@ const AccommodationForm = () => {
         label={"Type of Accomodation"}
         options={[
           { value: "", label: "Select an option" },
-          { value: "apartment", label: "Apartment" },
-          { value: "house", label: "House" },
-          { value: "villa", label: "Villa" },
+          { value: "Apartment", label: "Apartment" },
+          { value: "House", label: "House" },
+          { value: "Villa", label: "Villa" },
         ]}
       />
 
       <Input
         id="images"
-        label="Upload Images"
+        label="Upload Images (Max 2) - Optional"
         type="file"
         elementType="input"
         multiple
         onChange={(e) => {}}
         onFileChange={handleImageValidation}
       />
-
+      {validationError && (
+        <p className="text-red-500 mb-4">{validationError}</p>
+      )}
       {images.length > 0 && <ImageDisplay images={images} />}
 
-      <div className="mt-10">
-        {validationError && (
-          <p className="text-red-500 mb-4">{validationError}</p>
-        )}
-        <button
+      <div className="my-10 flex flex-col items-center justify-center">
+        <Button
           type="submit"
-          className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Next
-        </button>
+          label="Next"
+          className="block w-1/2 text-center text-sm font-semibold shadow-sm"
+        />
       </div>
     </form>
   );

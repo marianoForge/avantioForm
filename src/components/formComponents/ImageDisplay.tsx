@@ -19,7 +19,7 @@ const ImageDisplay: FC<ImageDisplayProps> = ({ images }) => {
   }, [images]);
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="mt-10 grid grid-cols-2 gap-4">
       {imageUrls.map((url, index) => (
         <div key={index} className="w-full h-full">
           <img

@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from "react";
+import { FC, ChangeEvent } from "react";
 
 type InputType =
   | "text"
@@ -27,7 +27,7 @@ interface Props {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => void;
-  onFileChange?: (files: FileList) => void; // Make this required by removing the '?'
+  onFileChange?: (files: FileList) => void;
   className?: string;
   id: string;
   multiple?: boolean;

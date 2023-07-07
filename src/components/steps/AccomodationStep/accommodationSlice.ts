@@ -19,7 +19,7 @@ const initialState: AccommodationState = {
 };
 
 export const accommodationSlice = createSlice({
-  name: "form",
+  name: "accomodationForm",
   initialState,
   reducers: {
     setAccommodationData: (
